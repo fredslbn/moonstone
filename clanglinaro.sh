@@ -11,7 +11,7 @@ KERNEL_DIR="$(pwd)"
 ##----------------------------------------------------------##
 # Device Name and Model
 MODEL=POCO
-DEVICE=moonstone
+DEVICE=stone
 
 # Kernel Version Code
 #VERSION=
@@ -95,20 +95,6 @@ function cloneTC() {
     export KERNEL_CCOMPILE32_PATH="${KERNEL_DIR}/gcc32"
     export KERNEL_CCOMPILE32="arm-linux-gnueabihf-"
     export PATH="$KERNEL_CCOMPILE32_PATH/bin:$PATH"
-	
-    
-    elif [ $COMPILER = "zyc" ];
-      then   
-      mkdir -p clang-zyc
-      cd clang-zyc
-      wget -q $(curl -k https://raw.githubusercontent.com/ZyCromerZ/Clang/main/Clang-main-link.txt 2>/dev/null) -O "zyc-clang.tar.gz"
-      tar -xf zyc-clang.tar.gz
-      export KERNEL_CLANG_PATH="${KERNEL_DIR}/clang-zyc"
-      export KERNEL_CLANG="clang"
-      export PATH="$KERNEL_CLANG_PATH/bin:$PATH"
-      CLANG_VERSION=$(clang --version | grep version | sed "s|clang version ||")
-      rm -f zyc-clang.tar.gz
-      cd ..    
     
 	fi
 	
@@ -183,9 +169,7 @@ START=$(date +"%s")
 	       
 	fi
 }
-CrossCompileFlagTriple="aarch64-linux-gnu-"
-CrossCompileFlag64="aarch64-linux-gnu-"
-CrossCompileFlag32="arm-linux-gnueabi-"
+
 ##----------------------------------------------------------------##
 function zipping() {
 	# Copy Files To AnyKernel3 Zip
