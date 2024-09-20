@@ -1,0 +1,11 @@
+task:
+  name: "Moonstone"
+  trigger_type: manual
+  timeout_in: 1h
+  container:
+      image: nexgang/ubuntu:latest
+      cpu: 8
+      memory: 32G
+      
+  setup_script:
+    - ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && date
