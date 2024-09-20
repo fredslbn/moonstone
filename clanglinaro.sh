@@ -17,11 +17,11 @@ DEVICE=moonstone
 #VERSION=
 
 # Kernel Defconfig
-DEFCONFIG=holi-qgki_defconfig
+# DEFCONFIG=holi-qgki_defconfig
 
 # Files
 IMAGE=$(pwd)/out/arch/arm64/boot/Image
-DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
+#DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
 #DTB=$(pwd)/out/arch/arm64/boot/dts/mediatek
 
 # Verbose Build
@@ -108,6 +108,8 @@ function cloneTC() {
 ##------------------------------------------------------##
 # Export Variables
 function exports() {
+        # Export DEFCONFIG
+        export DEFCONFIG="holi-qgki_defconfig"
         
         # Export ARCH and SUBARCH
         export ARCH=arm64
@@ -173,7 +175,7 @@ START=$(date +"%s")
 function zipping() {
 	# Copy Files To AnyKernel3 Zip
 	cp $IMAGE AnyKernel3
-	cp $DTBO AnyKernel3
+	# cp $DTBO AnyKernel3
 	# find $DTB -name "*.dtb" -exec cat {} + > AnyKernel3/dtb
 	
 	# Zipping and Push Kernel
