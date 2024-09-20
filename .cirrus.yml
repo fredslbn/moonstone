@@ -12,3 +12,7 @@ task:
     - cd ksus
     - git submodule update --init --recursive --remote
     - cd ..
+    
+  Build_script:
+      - bash clanglinaro.sh
+      
