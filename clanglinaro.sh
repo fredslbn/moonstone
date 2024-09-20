@@ -17,7 +17,7 @@ DEVICE=moonstone
 #VERSION=
 
 # Kernel Defconfig
-# DEFCONFIG=holi-qgki_defconfig
+DEFCONFIG=holi-qgki_defconfig
 
 # Files
 IMAGE=$(pwd)/out/arch/arm64/boot/Image
@@ -109,7 +109,7 @@ function cloneTC() {
 # Export Variables
 function exports() {
         # Export DEFCONFIG
-        export DEFCONFIG="holi-qgki_defconfig"
+        # export DEFCONFIG="holi-qgki_defconfig"
         
         # Export ARCH and SUBARCH
         export ARCH=arm64
